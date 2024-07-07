@@ -15,19 +15,41 @@ public class Motorista {
 	public String getCnh() {
 		return cnh;
 	}
+	
+	public void setCnh(String cnh) {
+		this.cnh = cnh;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
 	public ArrayList<Viagem> getViagens(){
 		return viagens;
 	}
 	
-	public void adicionar(Viagem v) {
-		viagens.add(v);
+	public void adicionar(Viagem viagem) {
+		viagens.add(viagem);
 		
 	}
-	public void remover(Viagem v) {
-		viagens.remove(v);
+	
+	public void remover(Viagem viagem) {
+		viagens.remove(viagem);
+	}
+	
+	@Override
+	public String toString() {
+	        
+		String result = "Motorista nome=" + nome + ", cnh=" + cnh ;
+		
+		for (Viagem v : viagens) 
+			result+= "viagem: " + v;
+		
+		return result;
 	}
 	
 	

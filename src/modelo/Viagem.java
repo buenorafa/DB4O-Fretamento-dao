@@ -52,11 +52,20 @@ public class Viagem {
     public void setDestino(String destino) {
         this.destino = destino;
     }
-    
 
     // Método para obter a data como uma string no formato dd-MM-yyyy
     public String getDataAsString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         return dateFormat.format(data);
     }
+    
+    @Override
+	public String toString() {
+    	 SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+         String dataFormatada = formatoData.format(data);
+         
+		return "Viagem [id=" + id + ", data=" + dataFormatada + ", destino=" + destino + ", veiculo=" + veiculo + ", motorista="
+				+ motorista + "]";
+	}
+    
 }

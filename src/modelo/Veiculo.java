@@ -16,21 +16,39 @@ public class Veiculo {
 	public String getPlaca() {
 		return placa;
 	}
+	
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
 
 	public String getModelo() {
 		return modelo;
 	}
+	
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	
 	public ArrayList<Viagem> getViagens(){
 		return viagens;
 	}
 	
-
-	public void adicionar(Viagem v) {
-		viagens.add(v);
+	public void adicionar(Viagem viagem) {
+		viagens.add(viagem);
 		
 	}
-	public void remover(Viagem v) {
-		viagens.remove(v);
+	public void remover(Viagem viagem) {
+		viagens.remove(viagem);
+	}
+	
+	@Override
+	public String toString() {
+		String result = "Veiculo placa=" + placa + ",  modelo=" + modelo  ;
+		
+		for (Viagem v : viagens) 
+			result+= "viagem: " + v;
+		
+		return result;
 	}
 	
 }
