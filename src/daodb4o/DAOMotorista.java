@@ -11,7 +11,7 @@ public class DAOMotorista extends DAO<Motorista> {
 		String cnh = (String) chave;
 		Query q = manager.query();
 		q.constrain(Motorista.class);
-		q.descend(cnh).constrain(chave);
+		q.descend("cnh").constrain(cnh);
 		List<Motorista> resultados = q.execute();
 		if (resultados.size()>0)
 			return resultados.get(0);

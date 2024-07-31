@@ -12,7 +12,7 @@ public class DAOVeiculo extends DAO<Veiculo> {
 		String placa = (String) chave;
 		Query q = manager.query();
 		q.constrain(Veiculo.class);
-		q.descend(placa).constrain(chave);
+		q.descend("placa").constrain(placa);
 		List<Veiculo> resultados = q.execute();
 		if (resultados.size()>0)
 			return resultados.get(0);
