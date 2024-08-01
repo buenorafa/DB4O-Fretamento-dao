@@ -3,6 +3,7 @@ package regras_negocio;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -172,8 +173,28 @@ public class Fachada {
 	}
 
 	//TO-DO: ALTERAR VIAGEM
-
+	
 	public static List<Viagem> listarViagens() {
 		return daoviagem.readAll();
+	}
+	
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+	//			CONSULTAS
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	
+	public static List<Viagem> viagensNaData(String data) throws Exception{	
+		Date dataFormatada = criarData(data);
+		List<Viagem> resultados =  daoviagem.viagensNaData(dataFormatada);
+		return resultados;
+	}
+
+	public static List<Viagem> viagensPorPlacaECNH(String placa, String cnh){	
+		List<Viagem> resultados =  daoviagem.viagensPorPlacaECNH(placa, cnh);
+		return resultados;
+	}
+
+	public static List<Motorista>  maisDeNViagens(int n){	
+		List<Motorista> resultados =  daomotorista.maisDeNViagens(n);
+		return resultados;
 	}
 }
