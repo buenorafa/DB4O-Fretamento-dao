@@ -1,9 +1,11 @@
 package daodb4o;
 
+import java.util.Date;
 import java.util.List;
 
 import com.db4o.query.Query;
 
+import modelo.Veiculo;
 import modelo.Viagem;
 
 public class DAOViagem extends DAO<Viagem> {
@@ -18,6 +20,27 @@ public class DAOViagem extends DAO<Viagem> {
 		else
 			return null;
 		
+	}
+	
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+	//			Consultas de Viagem
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	
+	public List<Viagem> viagensNaData(Date data){
+		Query q;
+		q = manager.query();
+		q.constrain(Viagem.class);
+		q.descend("data").constrain(data);
+		return q.execute();
+	}
+	
+	public List<Viagem> viagensPorPlacaECNH(String placa, String cnh){
+		Query q;
+		q = manager.query();
+		q.constrain(Viagem.class);
+		q.descend("placa").constrain(placa);
+		q.descend("cnh").constrain(cnh);
+		return q.execute();
 	}
 
 }
