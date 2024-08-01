@@ -116,32 +116,31 @@ public class Fachada {
         if (motorista == null)
             throw new Exception("Cadastrar viagem - Motorista não encontrado! CNH: " + cnh); 
 		
+		
+		//Verifica se o veiculo existe
+		Veiculo veiculo = daoveiculo.read(placa);
+		if(veiculo == null) {
+			throw new Exception("Criar viagem - Veiculo não encontrado! Placa: "+ placa);
+		} 
+		
 		//Formatação da data
 		Date dataConv = criarData(data);
 		if(dataConv == null) {
 			throw new Exception("Cadastrar viagem - Formato de data inválido: "+ data);
 		}
+						
 
 		String id = Viagem.geraId(dataConv, placa, cnh);
 
 		//Verifica se viagem já existe
 		Viagem viagem = daoviagem.read(id);
 		if(viagem != null) {
-			DAO.rollback();
 			throw new Exception("Criar viagem - Viagem já existe! ID: " + id);
 		}
 
-		//Verifica se o veiculo existe
-		Veiculo veiculo = daoveiculo.read(placa);
-		if(veiculo == null) {
-			DAO.rollback();
-			throw new Exception("Criar viagem - Veiculo não encontrado! Placa: "+ placa);
-		} 
-
 		// Regra de negócio: não pode haver 2 viagens do mesmo carro na mesma data
 		for(Viagem v : veiculo.getViagens()) {
-				if( v.getData() == dataConv) {
-					DAO.rollback();
+				if( v.getData().equals(dataConv)) {
 					// REGRA DE NEGÓCIO
 					throw new Exception(String.format("Criar Viagem - Não foi possível cadastrar viagem! O veículo de placa %s já possui viagem nesta data: %s", placa, data));
 				}						
