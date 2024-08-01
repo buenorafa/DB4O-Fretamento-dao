@@ -11,7 +11,7 @@ public class DAOViagem extends DAO<Viagem> {
 		String id = (String) chave;
 		Query q = manager.query();
 		q.constrain(Viagem.class);
-		q.descend(id).constrain(chave);
+		q.descend("id").constrain(id);
 		List<Viagem> resultados = q.execute();
 		if (resultados.size()>0)
 			return resultados.get(0);
