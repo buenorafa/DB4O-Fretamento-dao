@@ -19,4 +19,14 @@ public class DAOMotorista extends DAO<Motorista> {
 			return null;
 		
 	}
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+	//			Consultas de Motorista
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	
+	public List<Motorista> maisDeNViagens(int n){
+		Query q = manager.query();
+		q.constrain(Motorista.class);
+		q.descend("viagens").constrain(n).greater();
+		return q.execute();
+	}
 }
