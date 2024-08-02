@@ -82,8 +82,8 @@ public class TelaViagem {
 		frame.setModal(true);
 		
 		frame.setResizable(false);
-		frame.setTitle("Cliente");
-		frame.setBounds(100, 100, 729, 385);
+		frame.setTitle("Viagem");
+		frame.setBounds(100, 100, 729, 392);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.addWindowListener(new WindowAdapter() {
@@ -140,7 +140,7 @@ public class TelaViagem {
 		lbl_Data.setToolTipText("dd/MM/yyyy");
 		lbl_Data.setHorizontalAlignment(SwingConstants.LEFT);
 		lbl_Data.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lbl_Data.setBounds(21, 219, 28, 15);
+		lbl_Data.setBounds(21, 219, 46, 15);
 		frame.getContentPane().add(lbl_Data);
 
 		dataField = new JTextField();
