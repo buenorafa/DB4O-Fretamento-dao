@@ -64,6 +64,7 @@ public class Fachada {
 	public static Motorista localizarMotorista(String cnh){
 		return daomotorista.read(cnh);
 	}
+	
 
 	public static void cadastrarVeiculo(String placa, String modelo) throws Exception {
 		DAO.begin();
@@ -176,6 +177,10 @@ public class Fachada {
 		daomotorista.update(motorista);
 		daoviagem.delete(viagem);
 		DAO.commit();
+	}
+	
+	public static Viagem localizarViagem(String id) {
+		return daoviagem.read(id);
 	}
 
 	//TO-DO: ALTERAR VIAGEM
