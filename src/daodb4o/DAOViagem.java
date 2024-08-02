@@ -38,8 +38,8 @@ public class DAOViagem extends DAO<Viagem> {
 		Query q;
 		q = manager.query();
 		q.constrain(Viagem.class);
-		q.descend("placa").constrain(placa);
-		q.descend("cnh").constrain(cnh);
+		q.descend("veiculo").descend("placa").constrain(placa);
+		q.descend("motorista").descend("cnh").constrain(cnh);
 		return q.execute();
 	}
 

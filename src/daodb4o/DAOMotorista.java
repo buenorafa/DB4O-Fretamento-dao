@@ -1,5 +1,6 @@
 package daodb4o;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.db4o.query.Query;
@@ -26,7 +27,17 @@ public class DAOMotorista extends DAO<Motorista> {
 	public List<Motorista> maisDeNViagens(int n){
 		Query q = manager.query();
 		q.constrain(Motorista.class);
-		q.descend("viagens").constrain(n).greater();
-		return q.execute();
+		
+		List<Motorista> motoristaMaisdeNViagens = new ArrayList<>();
+		List<Motorista> motoristas = q.execute();
+		//System.out.println(motoristas);
+
+		for (Motorista m  : motoristas) {
+			if (m.getViagens().size() > n) {
+				//System.out.println(m.getViagens());
+				motoristaMaisdeNViagens.add(m);
+			}
+		}
+		return motoristaMaisdeNViagens;
 	}
 }
