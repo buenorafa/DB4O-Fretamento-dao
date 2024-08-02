@@ -56,10 +56,13 @@ public class Fachada {
 		DAO.commit();
 	}
 
-	//TO-DO: ALTERAR MOTORISTA
 	
 	public static List<Motorista> listarMotoristas(){
 		return daomotorista.readAll();
+	}
+	
+	public static Motorista localizarMotorista(String cnh){
+		return daomotorista.read(cnh);
 	}
 
 	public static void cadastrarVeiculo(String placa, String modelo) throws Exception {
@@ -84,11 +87,14 @@ public class Fachada {
 		DAO.commit();
 	}
 
-	//TO-DO: ALTERAR VEICULO
 
 	public static List<Veiculo> listarVeiculos() {
         return daoveiculo.readAll();
     }
+	
+	public static Veiculo localizarVeiculo(String placa){
+		return daoveiculo.read(placa);
+	}
 	
 	private static Date criarData(String data) throws Exception {
 		 String[] DATE_FORMATS = {
