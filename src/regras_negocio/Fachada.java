@@ -3,7 +3,6 @@ package regras_negocio;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -204,7 +203,8 @@ public class Fachada {
 		return resultados;
 	}
 
-	public static List<Motorista>  maisDeNViagens(int n){	
+	public static List<Motorista>  maisDeNViagens(String n_as_string){
+		int n = Integer.parseInt(n_as_string);
 		List<Motorista> resultados =  daomotorista.maisDeNViagens(n);
 		return resultados;
 	}
