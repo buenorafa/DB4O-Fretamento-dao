@@ -29,7 +29,7 @@ public class Consultar {
                 System.out.println(v.getId());
 
             System.out.println("\n >>> Motoristas com mais de 1 viagem");
-            for (Motorista m : Fachada.maisDeNViagens(1))
+            for (Motorista m : Fachada.maisDeNViagens("1"))
                 System.out.println(m.getCnh());
 
         } catch (Exception e) {
