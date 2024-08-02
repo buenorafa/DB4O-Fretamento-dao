@@ -41,14 +41,17 @@ public class Veiculo {
 		viagens.remove(viagem);
 	}
 	
-	@Override
-	public String toString() {
-		String result = "Veiculo placa=" + placa + ",  modelo=" + modelo  ;
+	
+	@Override 
+	public String toString() { 
 		
+		String result = "Veiculo placa=" + placa + ",  modelo=" + modelo;
+	
 		for (Viagem v : viagens) 
-			result+= "viagem: " + v;
-		
-		return result;
+			result+= "viagem: " + v.getData();
+ 
+		return result; 
 	}
+	
 	
 }

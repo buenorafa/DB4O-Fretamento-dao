@@ -43,16 +43,17 @@ public class Motorista {
 	
 	@Override
 	public String toString() {
-	        
-		String result = "Motorista nome=" + nome + ", cnh=" + cnh ;
+		String result = "Motorista nome=" + nome + ", cnh=" + cnh + "\n";
+		
+		if (viagens.size() > 1) {
+			result+= "data das viagens: ";
+		} else {
+			result+= "data da viagem: ";
+		}
 		
 		for (Viagem v : viagens) 
-			result+= "viagem: " + v;
+			result+= "\n" + v.getData();
 		
-		return result;
+		return result; 
 	}
-	
-	
-		
-
 }

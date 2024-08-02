@@ -4,68 +4,65 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Viagem {
-    private String id;
-    private Date data;
-    private Veiculo veiculo;
-    private Motorista motorista;
-    private String destino;
+	private String id;
+	private Date data;
+	private Veiculo veiculo;
+	private Motorista motorista;
+	private String destino;
 
-    public Viagem(Date data, Veiculo veiculo, Motorista motorista, String destino) {
-        this.data = data;
-        this.veiculo = veiculo;
-        this.motorista = motorista;
-        this.destino = destino;
-        this.id = geraId(data, veiculo.getPlaca(), motorista.getCnh());
-    }
+	public Viagem(Date data, Veiculo veiculo, Motorista motorista, String destino) {
+		this.data = data;
+		this.veiculo = veiculo;
+		this.motorista = motorista;
+		this.destino = destino;
+		this.id = geraId(data, veiculo.getPlaca(), motorista.getCnh());
+	}
 
-    public static String geraId(Date data, String placa, String cnh) {
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("yyMMdd");
-        String formattedDate = dateFormatter.format(data);
-        return formattedDate + placa + cnh;
-    }
+	public static String geraId(Date data, String placa, String cnh) {
+		SimpleDateFormat dateFormatter = new SimpleDateFormat("yyMMdd");
+		String formattedDate = dateFormatter.format(data);
+		return formattedDate + placa + cnh;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public Date getData() {
-        return data;
-    }
+	public Date getData() {
+		return data;
+	}
 
 //    public void setData(Date data) {
 //        this.data = data;
 //        this.id = geraId(data, veiculo.getPlaca(), motorista.getCnh());  // Atualiza o ID quando a data muda
 //    }
 
-    public Veiculo getVeiculo() {
-        return veiculo;
-    }
-
-    public Motorista getMotorista() {
-        return motorista;
-    }
-
-    public String getDestino() {
-        return destino;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
-
-    // Método para obter a data como uma string no formato dd-MM-yyyy
-    public String getDataAsString() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        return dateFormat.format(data);
-    }
-    
-    @Override
-	public String toString() {
-    	 SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
-         String dataFormatada = formatoData.format(data);
-         
-		return "Viagem [id=" + id + ", data=" + dataFormatada + ", destino=" + destino + ", veiculo=" + veiculo + ", motorista="
-				+ motorista + "]";
+	public Veiculo getVeiculo() {
+		return veiculo;
 	}
-    
+
+	public Motorista getMotorista() {
+		return motorista;
+	}
+
+	public String getDestino() {
+		return destino;
+	}
+
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}
+
+	// Método para obter a data como uma string no formato dd-MM-yyyy
+	public String getDataAsString(Date data) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		return dateFormat.format(data);
+	}
+	
+	@Override public String toString() { 
+    String dataFormatada = getDataAsString(data);
+	 
+	return "Viagem [id=" + id + ", data=" + dataFormatada + ", destino=" +
+	destino + ", veiculo=" + veiculo.getPlaca() + ", motorista=" + motorista.getNome() + "]"; }
+	 
 }
