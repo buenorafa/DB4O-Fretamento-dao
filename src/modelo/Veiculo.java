@@ -45,10 +45,16 @@ public class Veiculo {
 	@Override 
 	public String toString() { 
 		
-		String result = "Veiculo placa=" + placa + ",  modelo=" + modelo;
-	
+		String result = "\nVeiculo placa=" + placa + ",  modelo=" + modelo + "\n";
+		
+		if (viagens.size() > 1) {
+			result+= "data das viagens: ";
+		} else {
+			result+= "data da viagem: ";
+		}
+		
 		for (Viagem v : viagens) 
-			result+= "viagem: " + v.getData();
+			result+= "\n" + v.getData();
  
 		return result; 
 	}
