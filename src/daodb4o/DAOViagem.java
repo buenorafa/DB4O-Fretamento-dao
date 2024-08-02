@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.db4o.query.Query;
 
-import modelo.Veiculo;
 import modelo.Viagem;
 
 public class DAOViagem extends DAO<Viagem> {
