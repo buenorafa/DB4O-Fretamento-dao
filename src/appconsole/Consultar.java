@@ -22,15 +22,15 @@ public class Consultar {
 
             System.out.println("\n >>> Viagens para a data " + data);
             for (Viagem v : Fachada.viagensNaData(data))
-                System.out.println(v.getId());
+                System.out.println(v);
 
             System.out.println("\n >>> Viagens com placa " + placa + " e CNH " + cnh);
             for (Viagem v : Fachada.viagensPorPlacaECNH(placa, cnh))
-                System.out.println(v.getId());
+                System.out.println(v);
 
             System.out.println("\n >>> Motoristas com mais de 1 viagem");
             for (Motorista m : Fachada.maisDeNViagens("1"))
-                System.out.println(m.getCnh());
+                System.out.println(m);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

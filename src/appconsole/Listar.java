@@ -13,15 +13,15 @@ public class Listar {
 			Fachada.inicializar();
 			System.out.println("\n---listagem de motoristas:");
 			for(Motorista m: Fachada.listarMotoristas())
-				System.out.println(m.getCnh());
+				System.out.println(m);
 
 			System.out.println("\n---listagem de veiculos:");
 			for(Veiculo v: Fachada.listarVeiculos())
-				System.out.println(v.getPlaca());
+				System.out.println(v);
 			
 			System.out.println("\n---listagem de viagens:");
 			for(Viagem vv: Fachada.listarViagens())
-				System.out.println(vv.getId());
+				System.out.println(vv);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
